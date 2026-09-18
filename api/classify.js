@@ -9,7 +9,12 @@ module.exports = (req, res) => {
   req.on('end', () => {
     try {
       const parsed = JSON.parse(body || '{}');
-      const result = classify(parsed.text || '');
+      const text = (parsed.text || '').trim();
+      if (!text) {
+        res.status(400).json({ error: 'Please describe the complaint before submitting.' });
+        return;
+      }
+      const result = classify(text);
       res.status(200).json(result);
     } catch (e) {
       res.status(400).json({ error: 'Invalid request body' });
@@ -37,8 +42,11 @@ function classify(text) {
   };
 
   const scores = {};
+  const matches = {};
   for (const [category, words] of Object.entries(categoryKeywords)) {
-    scores[category] = words.reduce((count, word) => count + (lower.includes(word) ? 1 : 0), 0);
+    const found = words.filter((word) => lower.includes(word));
+    scores[category] = found.length;
+    matches[category] = found;
   }
 
   let bestCategory = 'Administrative';
@@ -54,6 +62,7 @@ function classify(text) {
     category: bestCategory,
     department: departmentNames[bestCategory],
     needsHumanReview: bestCategory === 'Faculty/Staff Behavior',
-    matchScore: bestScore
+    matchScore: bestScore,
+    matchedKeywords: matches[bestCategory]
   };
 }

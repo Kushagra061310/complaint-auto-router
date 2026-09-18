@@ -39,11 +39,14 @@
 
       <textarea id="complaintText" placeholder="e.g. There has been no hot water in Hostel B for 5 days."></textarea>
       <button id="submitBtn">Submit Complaint</button>
+      
+      <div id="errorBox" class="error-box" style="display:none;"></div>
 
       <div id="result" class="result-box" style="display:none;">
         <h3>Routing Result</h3>
         <p><strong>Category:</strong> <span id="category"></span></p>
         <p><strong>Routed To:</strong> <span id="department"></span></p>
+        <p id="matchedKeywords" class="keywords-note" style="display:none;"></p>
         <p id="reviewNote" class="review-note" style="display:none;">
           Flagged for mandatory human review — complaints about staff conduct are never auto-resolved.
         </p>
