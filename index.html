@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Complaint Auto-Router</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>College Complaint Auto-Router</h1>
+    <p class="subtitle">Type a complaint below. It will be automatically classified and routed to the right department.</p>
+
+    <textarea id="complaintText" placeholder="e.g. There has been no hot water in Hostel B for 5 days."></textarea>
+    <button id="submitBtn">Submit Complaint</button>
+
+    <div id="result" class="result-box" style="display:none;">
+      <h3>Routing Result</h3>
+      <p><strong>Category:</strong> <span id="category"></span></p>
+      <p><strong>Routed To:</strong> <span id="department"></span></p>
+      <p id="reviewNote" class="review-note" style="display:none;">
+        ⚠️ This complaint involves staff behavior and has been flagged for mandatory human review before routing — it is not auto-resolved.
+      </p>
+    </div>
+
+    <div class="samples">
+      <h4>Try one of these sample complaints:</h4>
+      <ul>
+        <li onclick="fillSample(this)">My professor hasn't returned our mid-sem answer sheets even after 3 weeks.</li>
+        <li onclick="fillSample(this)">There's been no hot water in Hostel B for the past 5 days.</li>
+        <li onclick="fillSample(this)">I applied for my bonafide certificate 2 weeks ago and still haven't received it.</li>
+        <li onclick="fillSample(this)">The Wi-Fi in the library keeps disconnecting every 10 minutes.</li>
+        <li onclick="fillSample(this)">A staff member was rude and dismissive when I asked a genuine question.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
