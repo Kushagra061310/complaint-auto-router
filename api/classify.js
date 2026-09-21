@@ -26,11 +26,38 @@ function classify(text) {
   const lower = text.toLowerCase();
 
   const categoryKeywords = {
-    'Academic': ['exam', 'grade', 'marks', 'syllabus', 'professor', 'lecture', 'assignment', 'result', 'paper', 'datesheet', 'teaching', 'class'],
-    'Hostel/Infrastructure': ['hostel', 'room', 'mess', 'food', 'water', 'electricity', 'socket', 'washroom', 'clean', 'hygiene', 'furniture'],
-    'Administrative': ['certificate', 'fee', 'fees', 'receipt', 'scholarship', 'transcript', 'bonafide', 'admin', 'document', 'id card', 'registration'],
-    'IT/Technical': ['wifi', 'wi-fi', 'internet', 'login', 'portal', 'password', 'computer', 'lab', 'software', 'website', 'server', 'network'],
-    'Faculty/Staff Behavior': ['rude', 'misconduct', 'harassment', 'inappropriate', 'unprofessional', 'behavior', 'behaviour', 'disrespect', 'unresponsive']
+    'Academic': [
+      'exam', 'grade', 'marks', 'syllabus', 'professor', 'lecture', 'assignment',
+      'result', 'paper', 'datesheet', 'teaching', 'class', 'attendance', 'internal',
+      'practical', 'lab record', 'thesis', 'project guide', 'viva', 'revaluation',
+      'answer sheet', 'answer script', 'curriculum', 'timetable'
+    ],
+    'Hostel/Infrastructure': [
+      'hostel', 'room', 'mess', 'food', 'water', 'electricity', 'socket', 'washroom',
+      'clean', 'hygiene', 'furniture', 'lift', 'elevator', 'block', 'stairs',
+      'generator', 'power cut', 'light', 'fan', 'ac', 'air conditioner', 'parking',
+      'gate', 'security guard', 'cctv', 'garden', 'ground', 'playground', 'sports',
+      'gym', 'court', 'equipment', 'canteen', 'drinking water', 'cooler', 'leak',
+      'leakage', 'ceiling', 'wall', 'paint', 'construction', 'noise', 'garbage',
+      'drainage', 'pest', 'insect'
+    ],
+    'Administrative': [
+      'certificate', 'fee', 'fees', 'receipt', 'scholarship', 'transcript', 'bonafide',
+      'admin', 'document', 'id card', 'registration', 'refund', 'migration',
+      'admission', 'form', 'application', 'library fine', 'no dues', 'leaving certificate',
+      'hostel allotment', 'seat allotment', 'office', 'counter'
+    ],
+    'IT/Technical': [
+      'wifi', 'wi-fi', 'internet', 'login', 'portal', 'password', 'computer', 'lab',
+      'software', 'website', 'server', 'network', 'printer', 'biometric', 'attendance machine',
+      'e-learning', 'app', 'crash', 'error', 'system down', 'projector', 'screen',
+      'email', 'account locked'
+    ],
+    'Faculty/Staff Behavior': [
+      'rude', 'misconduct', 'harassment', 'inappropriate', 'unprofessional', 'behavior',
+      'behaviour', 'disrespect', 'unresponsive', 'bullying', 'ragging', 'favoritism',
+      'favouritism', 'bias', 'shouted', 'insulted', 'humiliated', 'threat', 'threatened'
+    ]
   };
 
   const departmentNames = {
